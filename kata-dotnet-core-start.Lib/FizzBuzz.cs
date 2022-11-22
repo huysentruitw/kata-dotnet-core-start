@@ -5,7 +5,12 @@ public static class FizzBuzz
     {
         for (var count = 1; count <= 100; ++count)
         {
-            yield return count % 3 == 0 ? "Fizz" : "1";
+            if (count % 5 == 0)
+                yield return "Buzz";
+            else if (count % 3 == 0)
+                yield return "Fizz";
+            else
+                yield return "1";
         }
     }
 }

@@ -45,4 +45,21 @@ public class UnitTest1
         // Assert
         element.Should().Be("Fizz");
     }
+
+    [Theory]
+    [InlineData(5)]
+    [InlineData(10)]
+    [InlineData(15)]
+    public void WhenDivisibleBy5ThenElementShouldBeBuzz(int elementNumber)
+    {
+        // Arrange
+        var result = FizzBuzz.Generate().ToArray();
+
+        // Act
+        var index = elementNumber - 1;
+        var element = result[index];
+
+        // Assert
+        element.Should().Be("Buzz");
+    }
 }
