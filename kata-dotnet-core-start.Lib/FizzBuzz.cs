@@ -3,9 +3,9 @@ public static class FizzBuzz
 {
     public static IEnumerable<string> Generate()
     {
-        for (var count = 0; count < 100; ++count)
+        for (var count = 1; count <= 100; ++count)
         {
-            yield return "1";
+            yield return count % 3 == 0 ? "Fizz" : "1";
         }
     }
 }

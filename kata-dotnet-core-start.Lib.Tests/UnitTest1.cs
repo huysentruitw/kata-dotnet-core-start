@@ -28,4 +28,21 @@ public class UnitTest1
         // Assert
         result.Should().HaveCount(100);
     }
+
+    [Theory]
+    [InlineData(3)]
+    [InlineData(6)]
+    [InlineData(9)]
+    public void WhenDivisibleBy3ThenElementShouldBeFizz(int elementNumber)
+    {
+        // Arrange
+        var result = FizzBuzz.Generate().ToArray();
+
+        // Act
+        var index = elementNumber - 1;
+        var element = result[index];
+
+        // Assert
+        element.Should().Be("Fizz");
+    }
 }
