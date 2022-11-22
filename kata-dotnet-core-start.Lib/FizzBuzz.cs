@@ -3,23 +3,23 @@ public static class FizzBuzz
 {
     public static IEnumerable<string> Generate()
     {
-        for (var count = 1; count <= 100; ++count)
+        for (var number = 1; number <= 100; ++number)
         {
-            yield return NumberToFizzBuzz(count);
+            yield return NumberToFizzBuzz(number);
         }
     }
 
-    public static string NumberToFizzBuzz(int count)
+    public static string NumberToFizzBuzz(int number)
     {
-        if (count % 5 == 0 && count % 3 == 0)
+        if (number % 5 == 0 && number % 3 == 0)
             return "FizzBuzz";
 
-        if (count % 5 == 0)
+        if (number % 5 == 0)
             return "Buzz";
 
-        if (count % 3 == 0)
+        if (number % 3 == 0)
             return "Fizz";
 
-        return count.ToString();
+        return number.ToString();
     }
 }
