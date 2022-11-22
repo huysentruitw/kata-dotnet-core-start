@@ -33,50 +33,38 @@ public class UnitTest1
     [InlineData(3)]
     [InlineData(6)]
     [InlineData(9)]
-    public void WhenDivisibleBy3ThenElementShouldBeFizz(int elementNumber)
+    public void Given_InputDivisibleBy3_When_NumberToFizzBuzz_Then_ReturnsFizz(int elementNumber)
     {
-        // Arrange
-        var result = FizzBuzz.Generate().ToArray();
-
-        // Act
-        var index = elementNumber - 1;
-        var element = result[index];
+        // Arrange & Act
+        var result = FizzBuzz.NumberToFizzBuzz(elementNumber);
 
         // Assert
-        element.Should().Be("Fizz");
+        result.Should().Be("Fizz");
     }
 
     [Theory]
     [InlineData(5)]
     [InlineData(10)]
     [InlineData(20)]
-    public void WhenDivisibleBy5ThenElementShouldBeBuzz(int elementNumber)
+    public void Given_InputDivisibleBy5_When_NumberToFizzBuzz_Then_ReturnsBuzz(int elementNumber)
     {
-        // Arrange
-        var result = FizzBuzz.Generate().ToArray();
-
-        // Act
-        var index = elementNumber - 1;
-        var element = result[index];
+        // Arrange & Act
+        var result = FizzBuzz.NumberToFizzBuzz(elementNumber);
 
         // Assert
-        element.Should().Be("Buzz");
+        result.Should().Be("Buzz");
     }
 
     [Theory]
     [InlineData(15)]
     [InlineData(30)]
     [InlineData(45)]
-    public void WhenDivisibleBy3And5ThenElementShouldBeFizzBuzz(int elementNumber)
+    public void Given_InputDivisibleBy3And5_When_NumberToFizzBuzz_Then_ReturnsFizzBuzz(int elementNumber)
     {
-        // Arrange
-        var result = FizzBuzz.Generate().ToArray();
-
-        // Act
-        var index = elementNumber - 1;
-        var element = result[index];
+        // Arrange & Act
+        var result = FizzBuzz.NumberToFizzBuzz(elementNumber);
 
         // Assert
-        element.Should().Be("FizzBuzz");
+        result.Should().Be("FizzBuzz");
     }
 }

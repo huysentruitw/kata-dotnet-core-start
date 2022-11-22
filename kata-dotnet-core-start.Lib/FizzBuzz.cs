@@ -9,7 +9,7 @@ public static class FizzBuzz
         }
     }
 
-    private static string NumberToFizzBuzz(int count)
+    public static string NumberToFizzBuzz(int count)
     {
         if (count % 5 == 0 && count % 3 == 0)
             return "FizzBuzz";
