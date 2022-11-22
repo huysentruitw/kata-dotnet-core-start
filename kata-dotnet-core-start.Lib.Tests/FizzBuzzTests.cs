@@ -3,14 +3,12 @@ using FluentAssertions;
 
 namespace kata_dotnet_core_start.Lib.Tests;
 
-public class UnitTest1
+public class FizzBuzzTests
 {
     [Fact]
-    public void FirstElementShouldBeOne()
+    public void When_Generate_Then_FirstElementIsOne()
     {
-        // Arrange
-
-        // Act
+        // Arrange & Act
         var result = FizzBuzz.Generate();
 
         // Assert
@@ -18,11 +16,9 @@ public class UnitTest1
     }
 
     [Fact]
-    public void ResultShouldHave100Elements()
+    public void When_Generate_Then_Returns100Elements()
     {
-        // Arrange
-
-        // Act
+        // Arrange & Act
         var result = FizzBuzz.Generate();
 
         // Assert
