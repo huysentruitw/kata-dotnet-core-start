@@ -3,6 +3,9 @@ public static class FizzBuzz
 {
     public static IEnumerable<string> Generate()
     {
-        yield return "1";
+        for (var count = 0; count < 100; ++count)
+        {
+            yield return "1";
+        }
     }
 }

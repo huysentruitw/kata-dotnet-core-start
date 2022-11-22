@@ -16,4 +16,16 @@ public class UnitTest1
         // Assert
         result.First().Should().Be("1");
     }
+
+    [Fact]
+    public void ResultShouldHave100Elements()
+    {
+        // Arrange
+
+        // Act
+        var result = FizzBuzz.Generate();
+
+        // Assert
+        result.Should().HaveCount(100);
+    }
 }
