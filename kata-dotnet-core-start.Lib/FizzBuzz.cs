@@ -5,14 +5,21 @@ public static class FizzBuzz
     {
         for (var count = 1; count <= 100; ++count)
         {
-            if (count % 5 == 0 && count % 3 == 0)
-                yield return "FizzBuzz";
-            else if (count % 5 == 0)
-                yield return "Buzz";
-            else if (count % 3 == 0)
-                yield return "Fizz";
-            else
-                yield return "1";
+            yield return NumberToFizzBuzz(count);
         }
+    }
+
+    private static string NumberToFizzBuzz(int count)
+    {
+        if (count % 5 == 0 && count % 3 == 0)
+            return "FizzBuzz";
+
+        if (count % 5 == 0)
+            return "Buzz";
+
+        if (count % 3 == 0)
+            return "Fizz";
+
+        return "1";
     }
 }
