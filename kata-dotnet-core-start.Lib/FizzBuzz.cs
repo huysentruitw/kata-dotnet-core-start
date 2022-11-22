@@ -20,6 +20,6 @@ public static class FizzBuzz
         if (count % 3 == 0)
             return "Fizz";
 
-        return "1";
+        return count.ToString();
     }
 }

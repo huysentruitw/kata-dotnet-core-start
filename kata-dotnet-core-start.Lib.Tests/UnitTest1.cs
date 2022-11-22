@@ -67,4 +67,17 @@ public class UnitTest1
         // Assert
         result.Should().Be("FizzBuzz");
     }
+
+    [Theory]
+    [InlineData(1)]
+    [InlineData(43)]
+    [InlineData(91)]
+    public void Given_InputNotDivisibleBy3Or5_When_NumberToFizzBuzz_Then_ReturnsInputAsString(int elementNumber)
+    {
+        // Arrange & Act
+        var result = FizzBuzz.NumberToFizzBuzz(elementNumber);
+
+        // Assert
+        result.Should().Be(elementNumber.ToString());
+    }
 }
