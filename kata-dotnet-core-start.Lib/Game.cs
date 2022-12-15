@@ -14,6 +14,17 @@ public class Game
 
     public Player GetWinner()
     {
+        var cells = Board.AsArray();
+
+        var consecutiveColumns = 1;
+        for (var i = 0; i < cells.GetLength(0) - 1; i++)
+        {
+            for (var j = 0; j < cells.GetLength(1); j++)
+            {
+                if (cells[i, j])
+            }
+        }
+
         return Player.Y;
     }
 }

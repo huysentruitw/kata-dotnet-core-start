@@ -99,4 +99,21 @@ public class UnitTest1
         // Assert
         Assert.Equal(Player.Y, game.GetWinner());
     }
+
+    [Fact]
+    public void Given_PlayerXCompletesRow_When_GameInProgress_Then_GetWinnerReturnsPlayerX()
+    {
+        // Arrange
+        var game = new Game();
+
+        // Act
+        game.Move(Cell.One);  // Move of player X
+        game.Move(Cell.Four); // Move of player Y
+        game.Move(Cell.Two); // Move of player X
+        game.Move(Cell.Five); // Move of player Y
+        game.Move(Cell.Three);  // Move of player X
+
+        // Assert
+        Assert.Equal(Player.X, game.GetWinner());
+    }
 }
