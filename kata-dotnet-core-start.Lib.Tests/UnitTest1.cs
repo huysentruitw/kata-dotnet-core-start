@@ -70,4 +70,15 @@ public class UnitTest1
         //Assert
         Assert.Equal(Player.X, game.Board.AsArray()[2,0]);
     }
+
+    [Fact]
+    public void Given_DoMoveOnOccupiedCell_WhenGameInProgress_Then_ShouldThrowIllegalMoveException()
+    {
+        //Arrange
+        var game = new Game();
+        game.Move(Cell.Two);
+
+        //Act & Assert
+        Assert.Throws<IllegalMoveException>(() => game.Move(Cell.Two));
+    }
 }

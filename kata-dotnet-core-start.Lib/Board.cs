@@ -14,6 +14,9 @@ public sealed record Board
         var row = ((int) cell - 1) / 3;
         var column = ((int) cell - 1) % 3;
 
+        if (_data[row, column] is not null)
+            throw new IllegalMoveException();
+
         _data[row, column] = nextPlayer;
     }
 }
