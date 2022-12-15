@@ -15,18 +15,29 @@ public class UnitTest1
         Assert.Equal(expectedBoard, game.Board.AsArray());
     }
 
-    [Fact]
-    public void Given_DoMove_When_NewGame_Then_ExpectOneMoveOnBoard()
+    [Theory]
+    [InlineData(Cell.One)]
+    [InlineData(Cell.Two)]
+    [InlineData(Cell.Three)]
+    [InlineData(Cell.Four)]
+    [InlineData(Cell.Five)]
+    [InlineData(Cell.Six)]
+    [InlineData(Cell.Seven)]
+    [InlineData(Cell.Eight)]
+    [InlineData(Cell.Nine)]
+    public void Given_DoMove_When_NewGame_Then_ExpectMoveOfPlayerXOnBoard(Cell cell)
     {
         // Arrange
         var game = new Game();
 
         //Act
-        game.Move(Cell.Five);
+        game.Move(cell);
 
         //Assert
         var expectedBoard = new Player?[3, 3];
-        expectedBoard[1,1] = Player.X;
+        var expectedRow = ((int)cell - 1) % 3;
+        var expectedColumn = ((int)cell - 1) / 3;
+        expectedBoard[expectedRow, expectedColumn] = Player.X;
         Assert.Equal(expectedBoard, game.Board.AsArray());
     }
 }

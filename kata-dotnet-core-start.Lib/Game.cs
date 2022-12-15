@@ -5,5 +5,5 @@ public class Game
     public Board Board { get; } = new();
 
     public void Move(Cell cell)
-        => Board.Set();
+        => Board.Set(cell);
 }

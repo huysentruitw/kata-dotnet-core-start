@@ -9,8 +9,11 @@ public sealed record Board
         return _data;
     }
 
-    public void Set()
+    public void Set(Cell cell)
     {
-        _data[1, 1] = Player.X;
+        var row = ((int) cell - 1) % 3;
+        var column = ((int) cell - 1) / 3;
+
+        _data[row, column] = Player.X;
     }
 }
