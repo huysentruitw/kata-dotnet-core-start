@@ -8,4 +8,9 @@ public sealed record Board
     {
         return _data;
     }
+
+    public void Set()
+    {
+        _data[1, 1] = Player.X;
+    }
 }

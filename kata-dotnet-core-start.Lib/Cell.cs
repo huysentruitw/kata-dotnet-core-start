@@ -1,6 +1,6 @@
 ﻿namespace kata_dotnet_core_start.Lib;
 
-public enum Player
+public enum Cell
 {
-    X
+    Five = 5,
 }

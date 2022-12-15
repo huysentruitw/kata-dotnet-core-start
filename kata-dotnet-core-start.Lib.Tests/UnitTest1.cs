@@ -14,4 +14,19 @@ public class UnitTest1
         var expectedBoard = new Player?[3, 3];
         Assert.Equal(expectedBoard, game.Board.AsArray());
     }
+
+    [Fact]
+    public void Given_DoMove_When_NewGame_Then_ExpectOneMoveOnBoard()
+    {
+        // Arrange
+        var game = new Game();
+
+        //Act
+        game.Move(Cell.Five);
+
+        //Assert
+        var expectedBoard = new Player?[3, 3];
+        expectedBoard[1,1] = Player.X;
+        Assert.Equal(expectedBoard, game.Board.AsArray());
+    }
 }
