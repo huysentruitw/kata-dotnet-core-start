@@ -2,5 +2,6 @@
 
 public enum Player
 {
-    X
+    X,
+    Y
 }

@@ -35,9 +35,23 @@ public class UnitTest1
 
         //Assert
         var expectedBoard = new Player?[3, 3];
-        var expectedRow = ((int)cell - 1) % 3;
-        var expectedColumn = ((int)cell - 1) / 3;
+        var expectedRow = ((int)cell - 1) / 3;
+        var expectedColumn = ((int)cell - 1) % 3;
         expectedBoard[expectedRow, expectedColumn] = Player.X;
         Assert.Equal(expectedBoard, game.Board.AsArray());
+    }
+
+    [Fact]
+    public void Given_DoTwoMoves_When_NewGame_Then_ExpectSecondMovePlayerYOnBoard()
+    {
+        // Arrange
+        var game = new Game();
+
+        //Act
+        game.Move(Cell.Two);
+        game.Move(Cell.Seven);
+
+        //Assert
+        Assert.Equal(Player.Y, game.Board.AsArray()[2,0]);
     }
 }
