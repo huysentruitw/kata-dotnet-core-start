@@ -11,8 +11,8 @@ public sealed record Board
 
     public void Set(Cell cell, Player nextPlayer)
     {
-        var row = ((int) cell - 1) / 3;
-        var column = ((int) cell - 1) % 3;
+        var row = cell.GetRow();
+        var column = cell.GetColumn();
 
         if (_data[row, column] is not null)
             throw new IllegalMoveException();
