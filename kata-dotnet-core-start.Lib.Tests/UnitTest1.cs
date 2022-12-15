@@ -55,4 +55,19 @@ public class UnitTest1
         //Assert
         Assert.Equal(Player.Y, game.Board.AsArray()[2,0]);
     }
+
+    [Fact]
+    public void Given_DoThreeMoves_When_NewGame_Then_ExpectThirdMovePlayerXOnBoard()
+    {
+        // Arrange
+        var game = new Game();
+
+        //Act
+        game.Move(Cell.Two);
+        game.Move(Cell.Five);
+        game.Move(Cell.Seven);
+
+        //Assert
+        Assert.Equal(Player.X, game.Board.AsArray()[2,0]);
+    }
 }

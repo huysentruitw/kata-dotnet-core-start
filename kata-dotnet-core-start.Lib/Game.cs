@@ -9,6 +9,6 @@ public class Game
     public void Move(Cell cell)
     {
         Board.Set(cell, _nextPlayer);
-        _nextPlayer = Player.Y;
+        _nextPlayer = _nextPlayer == Player.X ? Player.Y : Player.X;
     }
 }
