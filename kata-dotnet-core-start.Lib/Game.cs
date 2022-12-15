@@ -11,4 +11,9 @@ public class Game
         Board.Set(cell, _nextPlayer);
         _nextPlayer = _nextPlayer == Player.X ? Player.Y : Player.X;
     }
+
+    public Player GetWinner()
+    {
+        return Player.Y;
+    }
 }
