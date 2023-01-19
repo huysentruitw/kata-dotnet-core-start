@@ -25,6 +25,9 @@ public sealed record Rover
     public Rover ExecuteCommands(CommandSet commands)
         => commands.Aggregate(this, (rover, command) => command switch
         {
-            Command.Forward => rover.MoveForward()
+            Command.Forward => rover.MoveForward(),
+            Command.Backward => rover.MoveBackward(),
+            Command.Left => rover.TurnLeft(),
+            Command.Right => rover.TurnRight()
         });
 }

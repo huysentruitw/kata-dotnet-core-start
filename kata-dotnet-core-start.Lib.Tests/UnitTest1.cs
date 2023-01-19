@@ -1,5 +1,6 @@
 using System.Drawing;
 using FluentAssertions;
+using FluentAssertions.Equivalency;
 
 namespace kata_dotnet_core_start.Lib.Tests;
 
@@ -119,6 +120,9 @@ public class UnitTest1
 
     [Theory]
     [InlineData(100, 102, Command.Forward, Command.Forward)]
+    [InlineData(99, 100, Command.Forward, Command.Left, Command.Forward, Command.Right, Command.Backward)]
+    [InlineData(100, 103, Command.Forward, Command.Forward, Command.Left, Command.Forward, Command.Backward, Command.Right, Command.Forward)]
+    [InlineData(100, 100, Command.Backward, Command.Left, Command.Backward, Command.Backward, Command.Left, Command.Backward, Command.Left, Command.Backward, Command.Backward)]
     public void Given_RoverDeployedNorthAtX100Y100_When_SetOfCommand_Then_RoverArrivesAtExpectedPosition(
         int expectedX,
         int expectedY,
