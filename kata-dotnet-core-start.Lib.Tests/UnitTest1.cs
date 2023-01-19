@@ -40,7 +40,7 @@ public class UnitTest1
     [InlineData(Direction.East, 101, 100)]
     [InlineData(Direction.South, 100, 99)]
     [InlineData(Direction.West, 99, 100)]
-    public void Given_RoverDeployedAtX100Y100_When_RoverReceivesForwardCommand_Then_RoverMovesForwardInCurrentDirection(
+    public void Given_RoverDeployedAtX100Y100_When_MoveForward_Then_RoverMovesForwardInCurrentDirection(
         Direction initialDirection,
         int expectedX,
         int expectedY)
@@ -51,6 +51,27 @@ public class UnitTest1
 
         // Act
         rover = rover.MoveForward();
+
+        // Assert
+        rover.Location.Should().Be(new Location(expectedX, expectedY));
+    }
+
+    [Theory]
+    [InlineData(Direction.North, 100, 99)]
+    [InlineData(Direction.East, 99, 100)]
+    [InlineData(Direction.South, 100, 101)]
+    [InlineData(Direction.West, 101, 100)]
+    public void Given_RoverDeployedAtX100Y100_When_MoveBackward_Then_RoverMovesForwardInCurrentDirection(
+        Direction initialDirection,
+        int expectedX,
+        int expectedY)
+    {
+        // Arrange
+        var location = new Location(100, 100);
+        var rover = Rover.DeployTo(location, initialDirection);
+
+        // Act
+        rover = rover.MoveBackward();
 
         // Assert
         rover.Location.Should().Be(new Location(expectedX, expectedY));

@@ -14,5 +14,7 @@ public sealed record Rover
         };
     }
 
-    public Rover MoveForward() => this with { Location = Location.MoveIntoDirection(Direction) };
+    public Rover MoveForward() => this with {Location = Location.MoveIntoDirection(Direction)};
+
+    public Rover MoveBackward() => this with {Location = Location.MoveIntoDirection(Direction.Opposite())};
 }
