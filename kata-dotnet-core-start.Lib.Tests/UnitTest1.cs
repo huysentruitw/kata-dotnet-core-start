@@ -96,4 +96,24 @@ public class UnitTest1
         // Assert
         rover.Direction.Should().Be(expectedDirection);
     }
+
+    [Theory]
+    [InlineData(Direction.North, Direction.East)]
+    [InlineData(Direction.East, Direction.South)]
+    [InlineData(Direction.South, Direction.West)]
+    [InlineData(Direction.West, Direction.North)]
+    public void Given_RoverDeployedInDirection_When_TurnRight_Then_RoverHasTurnedRight(
+        Direction initialDirection,
+        Direction expectedDirection)
+    {
+        // Arrange
+        var location = new Location(100, 100);
+        var rover = Rover.DeployTo(location, initialDirection);
+
+        // Act
+        rover = rover.TurnRight();
+
+        // Assert
+        rover.Direction.Should().Be(expectedDirection);
+    }
 }
