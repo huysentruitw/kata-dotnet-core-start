@@ -1,6 +1,6 @@
 ﻿namespace kata_dotnet_core_start.Lib;
 
-public sealed class Rover
+public sealed record Rover
 {
     public Location Location { get; private init; }
     public Direction Direction { get; private init; }
@@ -13,4 +13,6 @@ public sealed class Rover
             Direction = direction,
         };
     }
+
+    public Rover MoveForward() => this with { Location = Location.MoveIntoDirection(Direction) };
 }

@@ -1,14 +1,13 @@
 ﻿namespace kata_dotnet_core_start.Lib;
 
-public class Location
+public sealed record Location(int X, int Y)
 {
-    public Location(int x, int y)
-    {
-        X = x;
-        Y = y;
-    }
-
-    public int X { get; }
-
-    public int Y { get; }
+    public Location MoveIntoDirection(Direction direction)
+        => direction switch
+        {
+            Direction.North => this with { Y = Y + 1 },
+            Direction.East => this with { X = X + 1 },
+            Direction.South => this with { Y = Y - 1 },
+            Direction.West => this with { X = X - 1 },
+        };
 }
