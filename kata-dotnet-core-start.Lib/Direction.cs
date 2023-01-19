@@ -10,13 +10,23 @@ public enum Direction
 
 public static class DirectionExtensions
 {
-    public static Direction Opposite(this Direction direction) =>
-        direction switch
+    public static Direction Opposite(this Direction direction)
+        => direction switch
         {
             Direction.North => Direction.South,
             Direction.East => Direction.West,
             Direction.South => Direction.North,
             Direction.West => Direction.East,
+            _ => throw new NotSupportedException()
+        };
+
+    public static Direction Left(this Direction direction)
+        => direction switch
+        {
+            Direction.North => Direction.West,
+            Direction.East => Direction.North,
+            Direction.South => Direction.East,
+            Direction.West => Direction.South,
             _ => throw new NotSupportedException()
         };
 }
