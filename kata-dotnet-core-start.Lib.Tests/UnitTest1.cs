@@ -134,4 +134,14 @@ public class UnitTest1
 
         rover.Location.Should().Be(new Location(expectedX, expectedY));
     }
+
+    [Fact]
+    public void When_RoverMovesOutOfBounds_Then_WrapsToOtherSide()
+    {
+        var rover = Rover.DeployTo(new Location(359, 100), Direction.East);
+
+        rover = rover.MoveForward();
+
+        rover.Location.Should().Be(new Location(0, 100));
+    }
 }
