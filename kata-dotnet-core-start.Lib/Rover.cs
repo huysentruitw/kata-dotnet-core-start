@@ -21,4 +21,10 @@ public sealed record Rover
     public Rover TurnLeft() => this with {Direction = Direction.Left()};
 
     public Rover TurnRight() => this with {Direction = Direction.Opposite().Left()};
+
+    public Rover ExecuteCommands(CommandSet commands)
+        => commands.Aggregate(this, (rover, command) => command switch
+        {
+            Command.Forward => rover.MoveForward()
+        });
 }

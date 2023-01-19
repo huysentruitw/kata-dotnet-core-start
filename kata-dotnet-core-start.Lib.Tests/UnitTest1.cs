@@ -116,4 +116,18 @@ public class UnitTest1
         // Assert
         rover.Direction.Should().Be(expectedDirection);
     }
+
+    [Theory]
+    [InlineData(100, 102, Command.Forward, Command.Forward)]
+    public void Given_RoverDeployedNorthAtX100Y100_When_SetOfCommand_Then_RoverArrivesAtExpectedPosition(
+        int expectedX,
+        int expectedY,
+        params Command[] commands)
+    {
+        var rover = Rover.DeployTo(new Location(100, 100), Direction.North);
+
+        rover = rover.ExecuteCommands(commands);
+
+        rover.Location.Should().Be(new Location(expectedX, expectedY));
+    }
 }
